@@ -10,4 +10,11 @@ def load(file):
     print("{}\nError opening {}. Terminating program.".format(e, file), file=sys.stderr)
   sys.exit(1)
   
-print(load('dct.txt'))
+word_list = load("dct.txt")
+pali_list = []
+for word in word_list:
+  if len(word) > 1 and word == word[::-1]:
+    pali_list.append(word)
+    
+print("\nNumber of palidromes found = {}\n".format(len(pali_list)))
+print(*pali_list, sep='\n')
